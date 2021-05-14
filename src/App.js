@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [counter, setConter] = useState(0);
+  const [counter2, setConter2] = useState(0);
+  const inc = () => {
+    console.log("avant : ", counter);
+    setConter(counter + 1); // counter = counter + 1
+    console.log("apres : ", counter);
+  };
+  const dec = () => {
+    setConter(counter - 1); // counter = counter - 1
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>counter : {counter}</p>
+      <button onClick={inc}>+</button>
+      <button onClick={dec}>-</button>
+      <p>counter2 : {counter2}</p>
+      <button onClick={() => setConter2(counter2 + 2)}>+</button>
+      <button onClick={() => setConter2(counter2 - 2)}>-</button>
     </div>
   );
 }
